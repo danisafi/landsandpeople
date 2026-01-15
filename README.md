@@ -285,8 +285,8 @@ https://docs.google.com/document/d/1c4JFsu3OOlD9ZGYdNFtjqPW0GQNxHYiKma-kjQ6P_-U/
 5. Environment Configuration (type in Terminal)
     - cp .env.example .env
     - configure the .env file
-        - <img width="594" height="266" alt="image" src="https://github.com/user-attachments/assets/11d4d8f7-fba8-46a8-af7b-7e82be57ad3b" />
-        - <img width="414" height="239" alt="image" src="https://github.com/user-attachments/assets/f5c6eabc-961a-44ff-a9b2-847efb3f6af3" />
+        - <img width="618" height="132" alt="image" src="https://github.com/user-attachments/assets/9dbf774b-bcca-454f-b8ed-98a5525b5054" />
+        - <img width="240" height="147" alt="image" src="https://github.com/user-attachments/assets/e5380752-80a6-49c7-8f5d-efdd51ec8b65" />
 
     - php artisan key:generate
 
