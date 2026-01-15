@@ -1,14 +1,10 @@
 # Coffee Catering Reservation System
 
-## Group Information
-**Group Name:** Ruby  
+## Group Information 
 **Section:** 5   
 
 ### Group Members
-- Hani Khairani Binti Mohd Razif (2319158)  
-- Dahlia Cinta Binti Abdul Razak (2317562)  
 - Dania Safiyya Binti Farid (2310056)  
-- Hanis Binti Azhar (2312128)  
 
 ---
 
