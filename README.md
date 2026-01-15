@@ -33,9 +33,9 @@ Technical Objectives:
 ---
 
 ## Features and Functionalities
--User Registration & Login: Secure account creation and authentication.
--Homepage & Service Overview: View business information, operating hours, and services highlights.
--Package Showcase (Catalog-only style): Explore available coffee catering packages with detailed descriptions, pricing per cup, pax range, and flavour options.
+- User Registration & Login: Secure account creation and authentication.
+- Homepage & Service Overview: View business information, operating hours, and services highlights.
+- Package Showcase (Catalog-only style): Explore available coffee catering packages with detailed descriptions, pricing per cup, pax range, and flavour options.
 - Online Reservation: Submit coffee catering reservations through an online booking form with event and contact details.
 - Package Selection: Choose preferred catering packages during the booking process.
 - Manage Booking: Manage existing booking either to view, update, and delete.
