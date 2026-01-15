@@ -58,6 +58,7 @@ Technical Objectives:
 
 ** Database Design**
 Database Schema Overview 
+
 Our database consists of 5 main tables designed to handle users, bookings and related data: 
 
 Core Tables:
