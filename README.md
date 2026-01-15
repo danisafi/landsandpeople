@@ -1,6 +1,6 @@
 # Coffee Catering Reservation System
 
-## Group Information 
+## INFO 3305 WEB APP DEVELOPMENT
 **Section:** 5   
 
 ### Group Member
