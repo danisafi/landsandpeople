@@ -1,59 +1,527 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Coffee Catering Reservation System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Group Information
+**Group Name:** Ruby  
+**Section:** 5   
 
-## About Laravel
+### Group Members
+- Hani Khairani Binti Mohd Razif (2319158)  
+- Dahlia Cinta Binti Abdul Razak (2317562)  
+- Dania Safiyya Binti Farid (2310056)  
+- Hanis Binti Azhar (2312128)  
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Project Overview
+The growth of small catering businesses has increased the need for an efficient reservation system, as many businesses still rely on manual bookings through phone calls or walk-ins. This often leads to issues such as lost reservations, pricing miscalculations and double bookings.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+To address these problems, the Coffee Catering Reservation System was developed for Lands & People Cafe. This web-based system simplifies the reservation process by allowing users to choose predefined coffee catering packages based on their budget and event requirements.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Project Objectives
+- To digitalize the reservation process by replacing manual phone-based booking with an online platform.
+- To provide users with a seamless reservation experience for selecting packages and entering event details.
+- To enhance user satisfaction by enabling users to view, update, and cancel bookings.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Target Users
+- **Customers:** Individuals booking coffee catering services  
+- **Owners:**  Owners who want to manage bookings effectively digitally
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Features and Functionalities
+- Home page showcase: Display service offered such as professional baristas, fresh - ingredients, handcrafted drinks, event catering, and mobile coffee.
+- Package display: Shows the fixed package coffee menu and pricing.
+- Online reservation form: Let users input personal and event details.
+- Date picker calendar: Allows users to select dates easily.
+- Booking status page: Shows whether users have active bookings or not.
+- Booking option button: Provides edit and cancel option for active booking.
+- Update reservation form: Allows users to edit previous booking details.
+- Cancellation confirmation popup: Asks confirmation cancel to avoid accidental cancellation.
+- Navigation bar: Gives quick access to home, packages, my bookings and book now.
+- Footer information: Provides location, social media links and contact details.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Technical Implementation
 
-## Code of Conduct
+** Technology Stack**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Backend Framework: Laravel 10.x
+- Frontend: Blade Templates with Bootstrap 5
+- Database: MySQL 8.0
+- Authentication: Laravel Breeze
+- Image Storage: Laravel File Storage
+- Development Environment: XAMPP
 
-## Security Vulnerabilities
+** Database Design**
+Database Schema Overview Our database consists of 5 main tables designed to handle users, bookings and related data: Core Tables:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Users – Stores customers's login and account information.
+- Booking – Stores booking details made by users.
+- Membership – Stores users’ membership or subscription information.
+- Teams – Stores team information created within the system.
+- Team Invitations – Stores invitation details for users to join teams.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Entity Relationship Diagram (ERD)
+https://drive.google.com/file/d/1M581HbGbgGo_6I07NI9Z8xIYBwOJd6Ia/view?usp=sharing
+
+
+### Key Relationships
+- Package can have many reservation details ( One to Many )
+- Reservation Details can have many reservation update ( One to Many )
+- Reservation details can have many or none cancelled reservation ( One to One (optional))
+
+---
+
+** Laravel Implementation
+
+- Routes (Web.php)
+
+Route::name('home');
+
+// Move booking store route outside auth middleware
+// (allow guests to submit, but check in controller)
+Route::post('/bookings', [BookingController::class, 'store'])
+    ->name('bookings.store');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+
+    // Other booking routes (protected - require login)
+    Route::get('/bookings', [BookingController::class, 'index'])
+        ->name('bookings.index');
+
+    Route::get('/bookings/{booking}/edit', [BookingController::class, 'edit'])
+        ->name('bookings.edit');
+
+    Route::put('/bookings/{booking}', [BookingController::class, 'update'])
+        ->name('bookings.update');
+
+    Route::delete('/bookings/{booking}', [BookingController::class, 'destroy'])
+        ->name('bookings.destroy');
+
+    Route::get('/packages', function () {
+        return view('packages');
+    })->name('packages');
+});
+
+- Controllers
+  
+*Main Controllers Implemented are below :*
+1. BookingController: Displays all bookings for the currently authenticated user
+
+- Models and Relationship
+  
+//Booking Model
+
+class Booking extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'name',
+        'email',
+        'phone',
+        'date',
+        'pax',
+        'package_id',
+        'address',
+    ];
+
+     protected $casts = [
+        'date' => 'datetime', // Now $booking->date is a Carbon instance
+    ];
+
+    // Relationship: A booking belongs to a user
+    public function user()
+    {
+       // return $this->belongsTo(Package::class);
+          return $this->belongsTo(User::class);
+    }
+    
+}
+
+// Membership Model
+class Membership extends JetstreamMembership
+{
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = true;
+}
+
+// Team Model
+class Team extends JetstreamTeam
+{
+    /** @use HasFactory<\Database\Factories\TeamFactory> */
+    use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'personal_team',
+    ];
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => TeamCreated::class,
+        'updated' => TeamUpdated::class,
+        'deleted' => TeamDeleted::class,
+    ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array
+     */
+    protected function casts(): array
+    {
+        return [
+            'personal_team' => 'boolean',
+        ];
+    }
+}
+
+// TeamInvitation Model
+class TeamInvitation extends JetstreamTeamInvitation
+{
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'email',
+        'role',
+    ];
+
+    /**
+     * Get the team that the invitation belongs to.
+     */
+    public function team(): BelongsTo
+    {
+        return $this->belongsTo(Jetstream::teamModel());
+    }
+}
+
+// User Model
+class User extends Authenticatable
+{
+    /** @use HasFactory<\Database\Factories\UserFactory> */
+    use HasFactory, Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var list
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+}
+
+- Views and User Interface
+
+*Blade Templates Structure:*
+
+*api:*
+- api-token-manage.blade.php – Manage API tokens
+- index.blade.php – Main listing page for a resource
+
+*auth:*
+- confirm-password.blade.php – Confirm password for sensitive actions
+- forgot-password.blade.php – Request password reset
+- login.blade.php – User login form
+- register.blade.php – User registration form
+- reset-password.blade.php – Set new password after reset
+- two-factor-challenge.blade.php – 2FA verification form
+- verify-email.blade.php – Email verification notice
+  
+*bookings:*
+edit.blade.php – Edit resource form
+
+*components:*
+- action-message.blade.php – Displays temporary success/error messages
+- action-section.blade.php – Wrapper section for action forms
+- application-logo.blade.php – App logo
+- application-mark.blade.php – Small app mark/logo
+- authentication-card-logo.blade.php – Logo in authentication card
+- authentication-card.blade.php – Card wrapper for login/register forms
+- banner.blade.php – Site-wide notification banner
+- button.blade.php – Generic button component
+- checkbox.blade.php – Styled checkbox input
+- confirmation-modal.blade.php – Modal for confirming actions
+- danger-button.blade.php – Button for destructive actions
+- dialog-modal.blade.php – General-purpose modal dialog
+- dropdown-link.blade.php – Link inside a dropdown menu
+- dropdown.blade.php – Dropdown menu wrapper
+- form-section.blade.php – Section wrapper for forms
+- input-error.blade.php – Displays input validation errors
+- input.blade.php – Input field component
+- label.blade.php – Input label component
+- modal.blade.php – General modal wrapper
+- nav-link.blade.php – Navigation link component
+- responsive-nav-link.blade.php – Nav link for mobile/responsive view
+- secondary-button.blade.php – Styled secondary button
+- section-border.blade.php – Decorative border between sections
+- section-title.blade.php – Styled section heading
+- switchable-team.blade.php – Component to switch between teams
+- validation-errors.blade.php – Displays all form validation errors
+- welcome.blade.php – Welcome/home page for guests
+
+*emailss:*
+- team-invitation.blade.php – Page for inviting users to a team
+
+*layouts:*
+- app.blade.php – Main layout for authenticated users
+- guest.blade.php – Layout for guest pages (login, register)
+  
+*master:*
+- layout.blade.php – Base layout wrapper
+- delete-user-form.blade.php – Form to delete a user account
+- logout-other-browser-sessions-form.blade.php – Log out from other devices
+- show.blade.php – View single resource details
+- two-factor-authentication-form.blade.php – Manage 2FA setup
+- update-password-form.blade.php – Form to update user password
+- update-profile-information-form.blade.php – Update profile info form
+
+*teams:*
+- create-team-form.blade.php – Form to create a new team
+- create.blade.php – Form to create a resource
+- team-member-manager.blade.php – Manage team members
+- update-team-name-form.blade.php – Form to update a team’s name
+  
+- home.blade.php – Homepage for cafe reservation introduction
+- navigation-menu.php – Responsive navigation menu
+- policy.blade.php – Guest page showing policy content
+- terms.blade.php – Guest page showing terms and conditions
+
+ *Design Features:*
+- Responsive Design: Built with Bootstrap 5 for a mobile-first layout.
+- Color Scheme: Gray and peach theme reflecting the cafe.
+- Navigation: Intuitive booking with options based on pax.
+- Interactive Elements: Dynamic cart updates and real-time order tracking.
+
+---
+
+## User Authentication System
+
+## ** Authentication Features**
+- **Registration System**: Email validation, password confirmation
+- **Login System**: Secure authentication with "Remember Me" option.
+
+---
+
+### **Security Measures**
+- User registration with email validation
+- Secure login with session handling
+- Password hashing using Laravel Breeze
+
+---
+
+## Installation and Setup Instructions
+
+### Prerequisites :
+- PHP >= 8.1
+- Composer
+- Node.js and NPM
+- MySQL 8.0
+- XAMPP
+
+### Step-by-Step Installation
+
+### Installation Steps
+1. Install - https://git-scm.com/install/
+   
+2. Clone the Repository
+   - Create a folder in D: drive named 'coffee-clone'
+   - Open folder 'coffee-clone' in VSC
+   - In Terminal, type:
+     
+       - git clone https://github.com/danisafi/CoffeeReservation.git
+         
+       - cd CoffeeReservation
+   
+4. Install Dependencies (type in Terminal)
+   
+    -composer install
+   
+    -npm install
+
+5. Environment Configuration (type in Terminal)
+    - cp .env.example .env
+    - configure the .env file
+        - <img width="594" height="266" alt="image" src="https://github.com/user-attachments/assets/11d4d8f7-fba8-46a8-af7b-7e82be57ad3b" />
+        - <img width="414" height="239" alt="image" src="https://github.com/user-attachments/assets/f5c6eabc-961a-44ff-a9b2-847efb3f6af3" />
+
+    - php artisan key:generate
+
+6. Database Setup (type in Terminal)
+    - php artisan migrate
+    - php artisan db:seed
+
+7. Start Development Server (type in Terminal)
+    - php artisan serve
+    - npm run dev
+
+---
+
+## Testing and Quality Assurance
+
+###  Functionality Testing
+
+- User registration and login system.
+- Coffee packages browsing and display.
+- Active bookings display.
+- Responsive design across devices.
+
+### Browser Compatibility
+
+ - Google Chrome (Latest)
+ - Mozilla Firefox (Latest)
+ - Safari (Latest) 
+ - Microsoft Edge (Latest)
+
+ ### Performance Testing
+
+ - Fast Page Load: Ensured all pages load in under 3 seconds for optimal user experience.
+ - Database Optimization: Queries were optimized to reduce load times and improve efficiency.
+ - Image Optimization: Compressed images without compromising quality to enhance performance.
+ - Responsive Testing: Verified that the system works seamlessly across desktops, tablets, and mobile devices.
+
+---
+
+## Challenges Faced and Solutions
+
+ ### Challenge 1: Ensuring Mobile Responsiveness
+ - Problem: Users needed to make reservations easily on phones, tablets, and desktops.
+ - Solution: Utilized Bootstrap and responsive design techniques to create a consistent and user-friendly interface across all devices. 
+ 
+ ### Challenge 2: Complex Reservation Management
+ - Problem: Handling relationships between reservations, coffee packages, and customer details was complicated, especially for multiple bookings and updates.
+ - Solution: Implemented proper Eloquent relationships with pivot tables for many-to-many connections, ensuring accurate tracking of reservations and package selections. 
+
+---
+
+## Future Enhancements
+
+### Phase 2 Features (Potential Improvements)
+- Live Notifications: Instant alerts for reservation confirmations, updates, and changes.
+- Online Payment Support: Integration with secure payment gateways such as Stripe or PayPal.
+- Location-Based Tracking: Map-based tracking for catering delivery and event locations.
+- Customer Feedback Module: Ratings and reviews to improve service quality.
+- Data Analytics Dashboard: Insights into booking patterns, revenue, and customer behavior.
+- Custom Package Builder: Let users create their own coffee catering packages with flexible options.
+- Mobile Application: Dedicated iOS and Android apps for convenient access.
+- Inventory Alerts: Notify staff of ingredient or stock shortages to prevent overbooking.
+
+### Scalability Considerations
+- Database optimization to efficiently handle larger datasets.
+- Implementation of caching mechanisms to improve system performance.
+- API development to support mobile application integration.
+- Load balancing strategies to ensure reliability under high-traffic scenarios.
+
+---
+
+## Learning Outcomes
+
+### Technical Skills Gained
+ - Laravel Framework: Applied MVC architecture and Eloquent ORM for structured application development.
+ - Database Design: Designed efficient database schemas and managed relational data.
+ - Authentication: Implemented secure user authentication and authorization mechanisms.
+ - Frontend Development: Built responsive and user-friendly interfaces using Bootstrap.
+ - Version Control: Utilized Git and GitHub for effective version control and collaborative project management.
+
+### Soft Skills
+ - **Team Collaboration** : Working effectively and cooperatively within a group environment.
+ - **Project Management** : Planning, organizing, and executing a complex web application project.
+ - **Problem Solving** : Identifying, debugging, and resolving technical challenges.
+ - **Documentation** : Producing clear and comprehensive project documentation.
+
+---
+
+## References
+- Figma Prototype: Coffee Catering Reservation System
+- Easy Eat. (2025). https://easyeat.ai/r/landsnpeople/2
+
+---
+
+## Conclusion
+Our coffee reservation system successfully demonstrates the implementation of a comprehensive coffee reservation system using the Laravel framework. The project highlights proficiency in core web development principles, including MVC architecture, database design, user authentication, and responsive web design.
+
+---
+
+### Key Achievements
+- Successfully implemented all required Laravel components (Routes, Controllers, Views, and Models).
+- Designed and developed a functional coffee reservation system with user role management.
+- Built a responsive and user-friendly interface for seamless reservation and ordering.
+- Demonstrated a strong understanding of database relationships and full CRUD operations.
+- Applied security best practices for user authentication and access control
+
+---
+
+### Project Impact
+Project Impact This project offers hands-on experience in developing real-world web applications and highlights the ability to collaborate effectively within a team. The skills acquired through this project are highly relevant and transferable to professional web development environments.
+
+ - Project Completion Date: 13/1/2026
+ - Course: INFO 3305 Web Application Development
+
+---
+
+## Screenshots
+### Home Page
+![Home Page](screenshots/screenshot-HomePage.jpeg)
+
+### Packages Page
+![Packages Page](screenshots/screenshot-Packages.png)
+
+### Reservation Form
+![Reservation Form](screenshots/screenshot-BookingForm.jpeg)
+
+### My Bookings Page
+![My Bookings](screenshots/screenshot-Mybookings.png)
