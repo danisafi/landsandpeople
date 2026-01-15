@@ -63,6 +63,7 @@ Our database consists of 5 main tables designed to handle users, bookings and re
 Core Tables:
 - Users – Stores customers's login and account information.
 - Booking – Stores booking details made by users.
+- 
       - id
       - name
       - email
