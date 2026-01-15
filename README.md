@@ -3,7 +3,7 @@
 ## Group Information 
 **Section:** 5   
 
-### Group Members
+### Group Member
 - Dania Safiyya Binti Farid (2310056)  
 
 ---
