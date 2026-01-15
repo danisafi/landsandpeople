@@ -9,35 +9,39 @@
 ---
 
 ## Project Overview
-Lands & People Coffee Catering is a web-based booking system that is developed by using the Laravel framework. The system allows customers to browse coffee catering packages, submit booking requests, and manage their reservations online. Authenticated users can view, edit, and delete their bookings through a booking dashboard.
+Lands & People Coffee Catering is a web-based booking system that is developed by using the Laravel framework. The system allows customers to browse coffee catering packages, submit booking requests, and manage their reservations online. Authenticated users can view, edit, and delete their bookings through dedicated a booking page.
 
 ---
 
 ## Project Objectives
-- To digitalize the reservation process by replacing manual phone-based booking with an online platform.
-- To provide users with a seamless reservation experience for selecting packages and entering event details.
-- To enhance user satisfaction by enabling users to view, update, and cancel bookings.
+Functional Objectives:
+- To allow customers to submit coffee catering booking requests online.
+- To provide a clear presentation of catering packages and services.
+- To enable registered users to view, update, and delete their bookings.
 
-
+Technical Objectives:
+- To implement Laravel MVC architecture effectively.
+- To implement full CRUD operations for booking management.
+- To integrate secure user authentication using Laravel Jetstream.
+  
 ---
 
 ## Target Users
-- **Customers:** Individuals booking coffee catering services  
-- **Owners:**  Owners who want to manage bookings effectively digitally
+- **Customers:** Customers can browse catering services without requiring an account.
+- **Registered Users:**  Registered customers who want to submit booking requests and manage their bookings.
 
 ---
 
 ## Features and Functionalities
-- Home page showcase: Display service offered such as professional baristas, fresh - ingredients, handcrafted drinks, event catering, and mobile coffee.
-- Package display: Shows the fixed package coffee menu and pricing.
-- Online reservation form: Let users input personal and event details.
-- Date picker calendar: Allows users to select dates easily.
-- Booking status page: Shows whether users have active bookings or not.
-- Booking option button: Provides edit and cancel option for active booking.
-- Update reservation form: Allows users to edit previous booking details.
-- Cancellation confirmation popup: Asks confirmation cancel to avoid accidental cancellation.
-- Navigation bar: Gives quick access to home, packages, my bookings and book now.
-- Footer information: Provides location, social media links and contact details.
+-User Registration & Login: Secure account creation and authentication.
+-Homepage & Service Overview: View business information, operating hours, and services highlights.
+-Package Showcase (Catalog-only style): Explore available coffee catering packages with detailed descriptions, pricing per cup, pax range, and flavour options.
+- Online Reservation: Submit coffee catering reservations through an online booking form with event and contact details.
+- Package Selection: Choose preferred catering packages during the booking process.
+- Manage Booking: Manage existing booking either to view, update, and delete.
+- Contact & Location Access: View cafe contact details, operating hours, and physical location via Google Map integration.
+- Social Media Access: Connect to official social media platforms for updates and promotions.
+- Responsive User Interface: Access the system seamlessly across desktop and mobile devices.
 
 ---
 
