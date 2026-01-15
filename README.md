@@ -79,7 +79,8 @@ Core Tables:
 
 
 ### Entity Relationship Diagram (ERD)
-https://drive.google.com/file/d/1M581HbGbgGo_6I07NI9Z8xIYBwOJd6Ia/view?usp=sharing
+
+https://docs.google.com/document/d/1c4JFsu3OOlD9ZGYdNFtjqPW0GQNxHYiKma-kjQ6P_-U/edit?usp=sharing
 
 
 ### Key Relationships
@@ -218,7 +219,7 @@ https://drive.google.com/file/d/1M581HbGbgGo_6I07NI9Z8xIYBwOJd6Ia/view?usp=shari
 *Blade Template Structure:*
 
 - master/layout.blade.php - Main application layout
-- home.blade.php – Homepage for cafe reservation introduction, package display, reservation form, and contact details
+- home.blade.php – Homepage with package displays, reservation form, and contact details
 - bookings/index.blade.php - View existing reservation
 - bookings/edit.blade.php - Manage reservation details
 - auth/login.blade.php – User login form
@@ -230,23 +231,25 @@ https://drive.google.com/file/d/1M581HbGbgGo_6I07NI9Z8xIYBwOJd6Ia/view?usp=shari
  *Design Features:*
 - Responsive Design: Built with Bootstrap 5 for a mobile-first layout.
 - Color Scheme: Gray and peach theme reflecting the cafe.
-- Navigation: Intuitive booking with options based on pax.
-- Interactive Elements: Dynamic cart updates and real-time order tracking.
+- Navigation: Intuitive scrolling and navigation links for easy access to booking, packages, and contact information.
+- Interactive Elements: Hero image slider, animated package displays, and a dynamic reservation form for real-time interaction.
 
 ---
 
 ## User Authentication System
 
-## ** Authentication Features**
-- **Registration System**: Email validation, password confirmation
+** Authentication Features**
+- **Registration System**: Secure account creation with password confirmation.
 - **Login System**: Secure authentication with "Remember Me" option.
+- **Password Reset**: Email-based password recovery.
 
 ---
 
 ### **Security Measures**
-- User registration with email validation
-- Secure login with session handling
-- Password hashing using Laravel Breeze
+- User registration with password confirmation.
+- Secure login with session handling.
+- Password hashing using Laravel Breeze.
+- Middleware protection for authenticated routes.
 
 ---
 
@@ -301,50 +304,54 @@ https://drive.google.com/file/d/1M581HbGbgGo_6I07NI9Z8xIYBwOJd6Ia/view?usp=shari
 
 ###  Functionality Testing
 
+- Booking submission for guest and authenticated user.
 - User registration and login system.
-- Coffee packages browsing and display.
+- Coffee packages display and selection.
+- Booking CRUD operations.
 - Active bookings display.
 - Responsive design across devices.
 
 ### Browser Compatibility
 
- - Google Chrome (Latest)
- - Mozilla Firefox (Latest)
- - Safari (Latest) 
- - Microsoft Edge (Latest)
+ - Google Chrome 
+ - Mozilla Firefox 
+ - Safari 
+ - Microsoft Edge 
 
  ### Performance Testing
 
- - Fast Page Load: Ensured all pages load in under 3 seconds for optimal user experience.
- - Database Optimization: Queries were optimized to reduce load times and improve efficiency.
- - Image Optimization: Compressed images without compromising quality to enhance performance.
- - Responsive Testing: Verified that the system works seamlessly across desktops, tablets, and mobile devices.
+ - Optimised database queries.
+ - Reservation form submissions were tested to ensure fast response time and reliable data processing without page freezing or submission delays.
+ - Responsive design tested on multiple screen sizes.
 
 ---
 
 ## Challenges Faced and Solutions
 
- ### Challenge 1: Ensuring Mobile Responsiveness
- - Problem: Users needed to make reservations easily on phones, tablets, and desktops.
- - Solution: Utilized Bootstrap and responsive design techniques to create a consistent and user-friendly interface across all devices. 
+ ### Challenge 1: Designing an Efficient Booking Flow
+ - Problem: To design a booking process that is simple for users while still collecting all required event details such as date, number of pax, selected package, and event address.
+ - Solution: The booking form was created into clear input fields and labels.
  
- ### Challenge 2: Complex Reservation Management
- - Problem: Handling relationships between reservations, coffee packages, and customer details was complicated, especially for multiple bookings and updates.
- - Solution: Implemented proper Eloquent relationships with pivot tables for many-to-many connections, ensuring accurate tracking of reservations and package selections. 
+ ### Challenge 2: Restricting Booking Access to Authenticated Users
+ - Problem: Ensures that only authenticated users could submite reservation request.
+ - Solution: Implemented Laravel authentication middleware to restrict booking routes to logged-in users only. The booking form and submission functionality is protected using authentication check and will prompt the users to register or login before making a reservation.
+ 
+ ### Challenge 3: Managing User-Specific Booking Data
+ - Problem: Since bookings are limited to authenticated users, the system need to associate each booking with the correct user.
+ - Solution: A one-to-many relationship was established between users and bookings using Laravel's Eloquent ORM. Each booking record stores the authenticated user's ID to allow personalised booking management such as viewing, editing, or deleting bookings from the manage booking page.
 
 ---
 
 ## Future Enhancements
 
 ### Phase 2 Features (Potential Improvements)
-- Live Notifications: Instant alerts for reservation confirmations, updates, and changes.
-- Online Payment Support: Integration with secure payment gateways such as Stripe or PayPal.
-- Location-Based Tracking: Map-based tracking for catering delivery and event locations.
-- Customer Feedback Module: Ratings and reviews to improve service quality.
-- Data Analytics Dashboard: Insights into booking patterns, revenue, and customer behavior.
-- Custom Package Builder: Let users create their own coffee catering packages with flexible options.
-- Mobile Application: Dedicated iOS and Android apps for convenient access.
-- Inventory Alerts: Notify staff of ingredient or stock shortages to prevent overbooking.
+- Location-Based Tracking: Map-based tracking to display catering delivery routes and event location.
+- Custom Package Maker: Features that allows customers to design personalised coffee catering packages based on their preferences and budget.
+-  Admin dashboard: A centralised management panel for admin to view, approve, reject, manage reservations, and update catering packages.
+- Live Notifications: Real-time alerts for reservation confirmations, updates, cancellations, and booking status changes.
+- Customer Feedback: Rating and review system to collect customer feedback and improve service quality.
+- Booking Status: Enable booking status tracking (Pending, Confirmed, Completed, Cancelled).
+
 
 ### Scalability Considerations
 - Database optimization to efficiently handle larger datasets.
@@ -358,27 +365,28 @@ https://drive.google.com/file/d/1M581HbGbgGo_6I07NI9Z8xIYBwOJd6Ia/view?usp=shari
 
 ### Technical Skills Gained
  - Laravel Framework: Applied MVC architecture and Eloquent ORM for structured application development.
- - Database Design: Designed efficient database schemas and managed relational data.
- - Authentication: Implemented secure user authentication and authorization mechanisms.
+ - Database Design: Designed normalized database schemas and managed relational data.
+ - Authentication & Security: Implemented secure user authentication and authorization, and middleware protection using Laravel Breeze.
  - Frontend Development: Built responsive and user-friendly interfaces using Bootstrap.
  - Version Control: Utilized Git and GitHub for effective version control and collaborative project management.
 
 ### Soft Skills
  - **Team Collaboration** : Working effectively and cooperatively within a group environment.
+ - **Team Communication**: Communicate with team members for the ease of project completion.
  - **Project Management** : Planning, organizing, and executing a complex web application project.
  - **Problem Solving** : Identifying, debugging, and resolving technical challenges.
- - **Documentation** : Producing clear and comprehensive project documentation.
-
+ - **Documentation** : Produced clear, structured, and comprehensive technical and user documentation.
 ---
 
 ## References
-- Figma Prototype: Coffee Catering Reservation System
-- Easy Eat. (2025). https://easyeat.ai/r/landsnpeople/2
+- Figma Prototype - https://www.figma.com/design/K3AxbdMtMaGGnOj6ibEtlP/Coffee-Catering-Reservation?node-id=1-393&t=Wa0z1Wn5PMFQKfcy-1
+- BOOTSTRAPMADE. (2026). Nice Restaurant – Elegant Bootstrap Template for Restaurants and Cafés 2026 | BootstrapMade. Bootstrapmade.com. https://bootstrapmade.com/nice-restaurant-bootstrap-template/
+- Easy Eat. (2025). Easyeat.ai. https://easyeat.ai/r/landsnpeople/2
 
 ---
 
 ## Conclusion
-Our coffee reservation system successfully demonstrates the implementation of a comprehensive coffee reservation system using the Laravel framework. The project highlights proficiency in core web development principles, including MVC architecture, database design, user authentication, and responsive web design.
+The Coffee Catering Reservation System for Lands And People cafe successfully meets its functional and technical objectives by providing a secure, user-friendly, and responsive platform for managing coffee catering reservations. The implementation of authentication and CRUD functionality ensures data integrity, accountability, and efficient booking management, while Laravel Breeze enhances overall system security and reliability. Through the effective application of modern web development concepts and best practices, the system demonstrates scalability and strong potential for future enhancements to support real-world business operations.
 
 ---
 
@@ -394,20 +402,7 @@ Our coffee reservation system successfully demonstrates the implementation of a 
 ### Project Impact
 Project Impact This project offers hands-on experience in developing real-world web applications and highlights the ability to collaborate effectively within a team. The skills acquired through this project are highly relevant and transferable to professional web development environments.
 
- - Project Completion Date: 13/1/2026
+ - Project Completion Date: 15/1/2026
  - Course: INFO 3305 Web Application Development
 
 ---
-
-## Screenshots
-### Home Page
-![Home Page](screenshots/screenshot-HomePage.jpeg)
-
-### Packages Page
-![Packages Page](screenshots/screenshot-Packages.png)
-
-### Reservation Form
-![Reservation Form](screenshots/screenshot-BookingForm.jpeg)
-
-### My Bookings Page
-![My Bookings](screenshots/screenshot-Mybookings.png)
