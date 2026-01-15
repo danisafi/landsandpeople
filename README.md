@@ -57,13 +57,23 @@ Technical Objectives:
 - Development Environment: XAMPP
 
 ** Database Design**
-Database Schema Overview Our database consists of 5 main tables designed to handle users, bookings and related data: Core Tables:
+Database Schema Overview 
+Our database consists of 5 main tables designed to handle users, bookings and related data: 
 
+Core Tables:
 - Users – Stores customers's login and account information.
 - Booking – Stores booking details made by users.
-- Membership – Stores users’ membership or subscription information.
+      - id
+      - name
+      - email
+      - phone
+      - date
+      - pax
+      - package_id
+      - address
+      - user_id
+      - timestamps
 - Teams – Stores team information created within the system.
-- Team Invitations – Stores invitation details for users to join teams.
 
 
 ### Entity Relationship Diagram (ERD)
@@ -71,9 +81,10 @@ https://drive.google.com/file/d/1M581HbGbgGo_6I07NI9Z8xIYBwOJd6Ia/view?usp=shari
 
 
 ### Key Relationships
-- Package can have many reservation details ( One to Many )
-- Reservation Details can have many reservation update ( One to Many )
-- Reservation details can have many or none cancelled reservation ( One to One (optional))
+- A user can have multiple bookings (one-to-many)
+- A package can have multiple reservation details (one-to-many)
+- A reservation detail can have multiple reservation update (one-to-many)
+- A reservation can have one cancelled reservation ( One to One (optional))
 
 ---
 
