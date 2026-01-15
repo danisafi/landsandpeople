@@ -9,7 +9,7 @@
 ---
 
 ## Project Overview
-Lands & People Coffee Catering is a web-based booking system that is developed by using the Laravel framework. The system allows customers to browse coffee catering packages, submit booking requests, and manage their reservations online. Authenticated users can view, edit, and delete their bookings through dedicated a booking page.
+Lands & People Coffee Catering is a web-based booking system that is developed by using the Laravel framework. The system allows customers to browse coffee catering packages, submit booking requests, and manage their reservations online. Authenticated users can view, edit, and delete their bookings through a dedicated booking page.
 
 ---
 
