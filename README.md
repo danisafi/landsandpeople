@@ -9,9 +9,7 @@
 ---
 
 ## Project Overview
-The growth of small catering businesses has increased the need for an efficient reservation system, as many businesses still rely on manual bookings through phone calls or walk-ins. This often leads to issues such as lost reservations, pricing miscalculations and double bookings.
-
-To address these problems, the Coffee Catering Reservation System was developed for Lands & People Cafe. This web-based system simplifies the reservation process by allowing users to choose predefined coffee catering packages based on their budget and event requirements.
+Lands & People Coffee Catering is a web-based booking system that is developed by using the Laravel framework. The system allows customers to browse coffee catering packages, submit booking requests, and manage their reservations online. Authenticated users can view, edit, and delete their bookings through a booking dashboard.
 
 ---
 
