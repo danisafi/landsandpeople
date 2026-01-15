@@ -126,6 +126,11 @@ https://docs.google.com/document/d/1c4JFsu3OOlD9ZGYdNFtjqPW0GQNxHYiKma-kjQ6P_-U/
     - Guests trying to book are redirected to register.
     - Handles all strandard CRUD operations: Create, Read, Update, Delete.
 
+      1.store() – Save new booking (guest or user)
+      2.index() – Display user bookings
+      3.edit() – Edit booking details
+      4.update() – Update booking
+      5.destroy() – Delete booking
    
 - Models and Relationship
   
@@ -218,7 +223,7 @@ https://docs.google.com/document/d/1c4JFsu3OOlD9ZGYdNFtjqPW0GQNxHYiKma-kjQ6P_-U/
 
 *Blade Template Structure:*
 
-- master/layout.blade.php - Main application layout
+- master/layout.blade.php - Main application layout and navigation
 - home.blade.php – Homepage with package displays, reservation form, and contact details
 - bookings/index.blade.php - View existing reservation
 - bookings/edit.blade.php - Manage reservation details
