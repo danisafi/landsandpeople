@@ -97,8 +97,10 @@ https://drive.google.com/file/d/1M581HbGbgGo_6I07NI9Z8xIYBwOJd6Ia/view?usp=shari
         return view('home');
       })->name('home');
 
+        //View booking route
         Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
 
+        //Other booking route (require login)
         Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () 
           {
 
@@ -115,9 +117,10 @@ https://drive.google.com/file/d/1M581HbGbgGo_6I07NI9Z8xIYBwOJd6Ia/view?usp=shari
   
 - Controllers
   
-*Main Controllers Implemented are below :*
-1. BookingController: Displays all bookings for the currently authenticated user
+1. BookingController: Displays all bookings for authenticated user
+2. UserController:
 
+   
 - Models and Relationship
   
 //Booking Model
