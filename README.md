@@ -92,37 +92,26 @@ https://drive.google.com/file/d/1M581HbGbgGo_6I07NI9Z8xIYBwOJd6Ia/view?usp=shari
 
 - Routes (Web.php)
 
-    Route::name('home');
+       Route::get('/', function () {
+        return view('home');
+      })->name('home');
 
-    // Move booking store route outside auth middleware
-    // (allow guests to submit, but check in controller)
-    Route::post('/bookings', [BookingController::class, 'store'])
-        ->name('bookings.store');
+        Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
 
-    Route::middleware([
-        'auth:sanctum',
-        config('jetstream.auth_session'),
-        'verified',
-    ])->group(function () {
+        Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () 
+          {
 
-    // Other booking routes (protected - require login)
-    Route::get('/bookings', [BookingController::class, 'index'])
-        ->name('bookings.index');
+        // Other booking routes (protected - require login)
+        Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
+        Route::get('/bookings/{booking}/edit', [BookingController::class, 'edit'])->name('bookings.edit');
+        Route::put('/bookings/{booking}', [BookingController::class, 'update'])->name('bookings.update');
+        Route::delete('/bookings/{booking}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 
-    Route::get('/bookings/{booking}/edit', [BookingController::class, 'edit'])
-        ->name('bookings.edit');
-
-    Route::put('/bookings/{booking}', [BookingController::class, 'update'])
-        ->name('bookings.update');
-
-    Route::delete('/bookings/{booking}', [BookingController::class, 'destroy'])
-        ->name('bookings.destroy');
-
-    Route::get('/packages', function () {
-        return view('packages');
-    })->name('packages');
-});
-
+        Route::get('/packages', function () {
+            return view('packages'); 
+        })->name('packages');
+        });
+  
 - Controllers
   
 *Main Controllers Implemented are below :*
