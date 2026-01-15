@@ -117,17 +117,21 @@ https://drive.google.com/file/d/1M581HbGbgGo_6I07NI9Z8xIYBwOJd6Ia/view?usp=shari
   
 - Controllers
   
-1. BookingController: Displays all bookings for authenticated user
-2. UserController:
+1. BookingController:
+   
+    - Handles only authenticated users can create, edit, update, or delete bookings.
+    - Users can only modify or delete their own bookings.
+    - Guests trying to book are redirected to register.
+    - Handles all strandard CRUD operations: Create, Read, Update, Delete.
 
    
 - Models and Relationship
   
 //Booking Model
 
-class Booking extends Model
-{
-    use HasFactory;
+    class Booking extends Model
+    {
+        use HasFactory;
 
     protected $fillable = [
         'user_id',
@@ -151,113 +155,54 @@ class Booking extends Model
           return $this->belongsTo(User::class);
     }
     
-}
+    }
 
-// Membership Model
-class Membership extends JetstreamMembership
-{
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = true;
-}
 
 // Team Model
-class Team extends JetstreamTeam
-{
-    /** @use HasFactory<\Database\Factories\TeamFactory> */
+    
+    class Team extends JetstreamTeam
+    {
+    
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name',
         'personal_team',
     ];
 
-    /**
-     * The event map for the model.
-     *
-     * @var array
-     */
     protected $dispatchesEvents = [
         'created' => TeamCreated::class,
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array
-     */
     protected function casts(): array
     {
         return [
             'personal_team' => 'boolean',
         ];
     }
-}
-
-// TeamInvitation Model
-class TeamInvitation extends JetstreamTeamInvitation
-{
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'email',
-        'role',
-    ];
-
-    /**
-     * Get the team that the invitation belongs to.
-     */
-    public function team(): BelongsTo
-    {
-        return $this->belongsTo(Jetstream::teamModel());
     }
-}
+
 
 // User Model
-class User extends Authenticatable
-{
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+    
+    class User extends Authenticatable
+    {
+    
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list
-     */
     protected $fillable = [
         'name',
         'email',
         'password',
     ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list
-     */
+    
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array
-     */
     protected function casts(): array
     {
         return [
@@ -265,7 +210,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-}
+    }
 
 - Views and User Interface
 
