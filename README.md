@@ -92,18 +92,18 @@ https://drive.google.com/file/d/1M581HbGbgGo_6I07NI9Z8xIYBwOJd6Ia/view?usp=shari
 
 - Routes (Web.php)
 
-Route::name('home');
+    Route::name('home');
 
-// Move booking store route outside auth middleware
-// (allow guests to submit, but check in controller)
-Route::post('/bookings', [BookingController::class, 'store'])
-    ->name('bookings.store');
+    // Move booking store route outside auth middleware
+    // (allow guests to submit, but check in controller)
+    Route::post('/bookings', [BookingController::class, 'store'])
+        ->name('bookings.store');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
+    Route::middleware([
+        'auth:sanctum',
+        config('jetstream.auth_session'),
+        'verified',
+    ])->group(function () {
 
     // Other booking routes (protected - require login)
     Route::get('/bookings', [BookingController::class, 'index'])
