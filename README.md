@@ -103,26 +103,30 @@ https://docs.google.com/document/d/1c4JFsu3OOlD9ZGYdNFtjqPW0GQNxHYiKma-kjQ6P_-U/
 
 - Routes (Web.php)
 
-       Route::get('/', function () {
-        return view('home');
-      })->name('home');
+       // Home route (with reviews)
+        Route::get('/', function () {
+            $reviews = Review::latest()->take(6)->get();
+            return view('home', compact('reviews'));
+            })->name('home');
 
-        //View booking route
+        // Booking route (public)
         Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
 
-        //Other booking route (require login)
-        Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () 
-          {
+        // Review route
+        Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
-        // Other booking routes (protected - require login)
+        // Other Booking routes (require login)
+        Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
+
         Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
         Route::get('/bookings/{booking}/edit', [BookingController::class, 'edit'])->name('bookings.edit');
         Route::put('/bookings/{booking}', [BookingController::class, 'update'])->name('bookings.update');
         Route::delete('/bookings/{booking}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 
         Route::get('/packages', function () {
-            return view('packages'); 
+            return view('packages');
         })->name('packages');
+        });
         });
   
 - Controllers
