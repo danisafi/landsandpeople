@@ -335,7 +335,7 @@ https://docs.google.com/document/d/1c4JFsu3OOlD9ZGYdNFtjqPW0GQNxHYiKma-kjQ6P_-U/
 
  ### Challenge 1: Designing an Efficient Booking Flow
  - Problem: To design a booking process that is simple for users while still collecting all required event details such as date, number of pax, selected package, and event address.
- - Solution: The booking form was created into clear input fields and labels.
+ - Solution: The booking form was created into clear input fields, labels, and placeholder texts.
  
  ### Challenge 2: Restricting Booking Access to Authenticated Users
  - Problem: Ensures that only authenticated users could submite reservation request.
