@@ -182,6 +182,18 @@ https://docs.google.com/document/d/1c4JFsu3OOlD9ZGYdNFtjqPW0GQNxHYiKma-kjQ6P_-U/
     
     }
 
+// Review Model
+
+    class Review extends Model
+    {
+    use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'rating',
+        'comment',
+    ];
+    }
 
 // Team Model
     
@@ -242,7 +254,7 @@ https://docs.google.com/document/d/1c4JFsu3OOlD9ZGYdNFtjqPW0GQNxHYiKma-kjQ6P_-U/
 *Blade Template Structure:*
 
 - master/layout.blade.php - Main application layout and navigation
-- home.blade.php – Homepage with package displays, reservation form, and contact details
+- home.blade.php – Homepage with package displays, reservation form, reviews & ratings and contact details
 - bookings/index.blade.php - View existing reservation
 - bookings/edit.blade.php - Manage reservation details
 - auth/login.blade.php – User login form
