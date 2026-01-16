@@ -81,6 +81,7 @@ Core Tables:
       - address
       - user_id
       - timestamps
+- Review - Stores and display customers' reviews and ratings.
 - Teams – Stores team information created within the system.
 
 
@@ -94,6 +95,7 @@ https://docs.google.com/document/d/1c4JFsu3OOlD9ZGYdNFtjqPW0GQNxHYiKma-kjQ6P_-U/
 - A package can have multiple reservation details (one-to-many)
 - A reservation detail can have multiple reservation update (one-to-many)
 - A reservation can have one cancelled reservation (one-to-one (optional))
+- Multiple users can leave multiple reviews (many-to-many)
 
 ---
 
@@ -137,7 +139,11 @@ https://docs.google.com/document/d/1c4JFsu3OOlD9ZGYdNFtjqPW0GQNxHYiKma-kjQ6P_-U/
       3.edit() – Edit booking details
       4.update() – Update booking
       5.destroy() – Delete booking
-   
+
+2. ReviewController:
+
+    - Handles review submissions, validates input, saves to database, and redirects back with a success message.
+      
 - Models and Relationship
   
 //Booking Model
