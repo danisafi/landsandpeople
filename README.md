@@ -41,8 +41,8 @@ Technical Objectives:
 - Manage Booking: Manage existing booking either to view, update, and delete.
 - Contact & Location Access: View cafe contact details, operating hours, and physical location via Google Map integration.
 - Social Media Access: Connect to official social media platforms for updates and promotions.
+  
 - Review & Rating:
-  -
       - Review Submission: Users can submit reviews with their name, rating (1–5 stars), and comments.
       - Display Reviews: Reviews are displayed in a carousel format that showcase multiple reviews in a visually appealing manner.
       - Dynamic Updates: Submitted reviews are stored in the database and displayed immediately without requiring a page reload.
