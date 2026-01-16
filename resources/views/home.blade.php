@@ -321,6 +321,114 @@
 
     </section><!-- /Book A Table Section -->
 
+<!-- Reviews Section -->
+<section id="reviews" class="reviews section">
+  
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Customer Reviews</h2>
+    <p>What our customers say about us</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+  <!-- Reviews Swiper -->
+  <div class="swiper init-swiper">
+      <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": {"delay":5000},
+          "slidesPerView": "auto",
+          "pagination": {"el":".swiper-pagination","type":"bullets","clickable":true},
+          "breakpoints": {
+            "320": {"slidesPerView":1,"spaceBetween":20},
+            "768": {"slidesPerView":2,"spaceBetween":20},
+            "1200": {"slidesPerView":3,"spaceBetween":20}
+          }
+        }
+      </script>
+
+      <div class="swiper-wrapper">
+        @forelse($reviews as $review)
+          <div class="swiper-slide">
+            <div class="testimonial-item shadow p-4 rounded" style="background-color:#252a2b; color:#fff;">
+              
+              <!-- Profile -->
+              <div class="profile mt-auto d-flex align-items-center gap-3">
+                <div>
+                  <h5>{{ $review->name }}</h5>
+                  <h6>Customer</h6>
+                </div>
+              </div>
+
+              <!-- Stars -->
+              <div class="stars mb-2">
+                @for ($i = 1; $i <= 5; $i++)
+                  <i class="bi {{ $i <= $review->rating ? 'bi-star-fill text-warning' : 'bi-star text-muted' }}"></i>
+                @endfor
+              </div>
+
+              <!-- Comment -->
+              <p class="fst-italic">“{{ $review->comment }}”</p>
+
+            </div>
+          </div>
+        @empty
+          <p class="text-center">No reviews yet. Be the first!</p>
+        @endforelse
+      </div>
+
+      <div class="swiper-pagination mt-4"></div>
+  </div>
+
+  <!-- Review Form -->
+  <div class="review-form-wrapper shadow p-4 rounded mt-5" style="background-color:#252a2b; color:#fff;">
+    <h4 class="mb-3">Leave a Review</h4>
+
+    @if(session('success'))
+      <div class="alert alert-success">
+        {{ session('success') }}
+      </div>
+    @endif
+
+    <form action="{{ route('reviews.store') }}" method="POST" class="review-form">
+      @csrf
+      <div class="row gy-3">
+      
+      <!-- Name -->
+      <div class="col-lg-4">
+        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+      </div>
+
+      <!-- Rating -->
+      <div class="col-lg-4">
+        <label class="form-label d-block">Your Rating</label>
+        <div class="star-rating">
+          <input type="hidden" name="rating" id="rating" required>
+          @for ($i = 1; $i <= 5; $i++)
+            <i class="bi bi-star star" data-value="{{ $i }}"></i>
+          @endfor
+        </div>
+      </div>
+
+      <!-- Comment -->
+      <div class="col-12">
+        <textarea name="comment" rows="3" class="form-control" placeholder="Your review" required></textarea>
+      </div>
+
+      <!-- Submit -->
+      <div class="col-12 text-center">
+        <button type="submit" class="btn-book-table">Submit Review</button>
+      </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+</section>
+
+
     <!-- Contact Section -->
     <section id="contact" class="contact section">
 
@@ -397,6 +505,9 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+      
  
 
 @endsection
+
+

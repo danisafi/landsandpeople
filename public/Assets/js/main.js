@@ -203,3 +203,21 @@
 
 })();
 
+/*Review*/
+  document.querySelectorAll('.star-rating .star').forEach(star => {
+    star.addEventListener('click', function () {
+      const value = this.getAttribute('data-value');
+      document.getElementById('rating').value = value;
+
+      document.querySelectorAll('.star-rating .star').forEach((s, index) => {
+        if (index < value) {
+          s.classList.remove('bi-star');
+          s.classList.add('bi-star-fill', 'active');
+        } else {
+          s.classList.remove('bi-star-fill', 'active');
+          s.classList.add('bi-star');
+        }
+      });
+    });
+  });
+
