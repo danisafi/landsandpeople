@@ -3,9 +3,8 @@
 ## INFO 3305 WEB APP DEVELOPMENT
 **Section:** 5   
 
-### Group Member
-- Dania Safiyya Binti Farid (2310056)  
-
+### Dania Safiyya Binti Farid (2310056)
+  
 ---
 
 ## Project Overview
