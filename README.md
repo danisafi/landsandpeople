@@ -17,6 +17,7 @@ Functional Objectives:
 - To allow customers to submit coffee catering booking requests online.
 - To provide a clear presentation of catering packages and services.
 - To enable registered users to view, update, and delete their bookings.
+- To enable users to leave review and ratings
 
 Technical Objectives:
 - To implement Laravel MVC architecture effectively.
