@@ -136,12 +136,17 @@ https://docs.google.com/document/d/1c4JFsu3OOlD9ZGYdNFtjqPW0GQNxHYiKma-kjQ6P_-U/
 
 
    1.store() – Save new booking (guest or user)
+   
    2.index() – Display user bookings
+   
    3.edit() – Edit booking details
+   
    4.update() – Update booking
+   
    5.destroy() – Delete booking
+   
 
-2. ReviewController:
+3. ReviewController:
 
     - Handles review submissions, validates input, saves to database, and redirects back with a success message.
       
